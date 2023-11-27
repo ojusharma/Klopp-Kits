@@ -5,15 +5,21 @@
 <html>
 <head>
 <title>Administrator Page</title>
+<style>
+	table {
+		border-collapse: collapse;
+		width: 30%;
+		
+	}
+</style>
 </head>
 <body>
-
-
-
-
+    <%@ include file="header.jsp" %>
+<h2>Administrator Sales report by Day</h2>
 <% 
 try{
     getConnection();
+
     String sql = "SELECT convert(DATE,orderDate) as dates, SUM(totalAmount) as sales "
         + "FROM ordersummary "
         + "GROUP BY convert(DATE,orderDate)";

@@ -11,7 +11,8 @@
 </style>
 </head>
 <body>
-<h1>Customer  Info</h1>
+	<%@ include file="header.jsp" %>
+<h1>Customer  Profile</h1>
 <%@ include file="auth.jsp"%>
 <%@ page import="java.text.NumberFormat" %>
 <%@ include file="jdbc.jsp" %>

@@ -30,6 +30,7 @@
     </style>
 </head>
 <body>
+    <%@ include file="header.jsp" %>
 
 <%
 @SuppressWarnings({"unchecked"})

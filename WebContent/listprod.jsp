@@ -27,6 +27,7 @@
 
 </head>
 <body>
+	<%@ include file="header.jsp" %>
 
 <h1 align="center">Product Search</h1>
 <h2>Search for the products you want to buy:</h2>
