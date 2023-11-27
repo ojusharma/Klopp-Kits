@@ -1,4 +1,4 @@
-# Klopp's Grocery Store
+# **Klopp's Grocery Store**
 
 Welcome to Klopp's Grocery Store, a **Java-based full-stack project** that harnesses the power of MySQL, Docker, and JDBC to create an innovative online grocery shop!
 
