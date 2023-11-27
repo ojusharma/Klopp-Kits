@@ -66,7 +66,7 @@ ResultSet rst = sql.executeQuery();
 	// Print out the ResultSet
 	while(rst.next()) {
 		out.print("<tr><td><a href=\"addcart.jsp?id=" + rst.getInt(3) + "&name=" + rst.getString(1) + "&price=" + rst.getString(2) + "\" class=\"add-to-cart-link\">Add to Cart</a>"
-			+ "</td><td>" + rst.getString(1) + "</td><td>" + rst.getString(2) + "</td></tr>");
+			+ "</td><td>" + "<a href=\"product.jsp?id=" + rst.getInt(3) + "\" class=\"product-link\">"+ rst.getString(1) +"</a>" + "</td><td>" + rst.getString(2) + "</td></tr>");
 	}
 	out.println("</table>");
 	rst.close();
@@ -86,8 +86,10 @@ else
 	// Print out the ResultSet
 	while(rst.next()) {
 		out.print("<tr><td><a href=\"addcart.jsp?id=" + rst.getInt(3) + "&name=" + rst.getString(1) + "&price=" + rst.getString(2) + "\" class=\"add-to-cart-link\">Add to Cart</a>"
-			+ "</td><td>" + rst.getString(1) + "</td><td>" + rst.getString(2) + "</td></tr>");
+			+ "</td><td>" + "<a href=\"product.jsp?id=" + rst.getInt(3)+ "\" class=\"product-link\">"+ rst.getString(1) +"</a>" + "</td><td>" + rst.getString(2) + "</td></tr>");
 	}
+
+	
 
 	out.println("</table>");
 	rst.close();
