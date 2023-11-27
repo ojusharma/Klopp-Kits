@@ -8,17 +8,40 @@
 <%@ include file="jdbc.jsp" %>
 
 <html>
-<head>
-<title>YOUR NAME Grocery Shipment Processing</title>
+<head>	
+<title>Klopp's Grocery Shipment Processing</title>
 </head>
 <body>
         
 <%@ include file="header.jsp" %>
 
 <%
+	getConnection();
 	// TODO: Get order id
-          
+	request.getParameter("orderId");
+
 	// TODO: Check if valid order id in database
+	if(orderId == null){
+		out.println("Invalid order id");
+	}
+	else
+	{
+		String sql = "SELECT orderId, productId, quantity, price FROM orderproduct WHERE orderId = ?";
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, Integer.parseInt(orderId));
+		ResultSet rst = pstmt.executeQuery();
+		if(rst.next()){
+			con.setAutoCommit(false);
+			sql = "INSERT INTO shipment (shipmentDate, warehouseId) VALUES (?,1);";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setTimestamp(1, new java.sql.Timestamp(new Date().getTime()));
+			pstmt.executeUpdate();
+		}
+		else{
+			out.println("Invalid order id");
+		}
+	}
+
 	
 	// TODO: Start a transaction (turn-off auto-commit)
 	

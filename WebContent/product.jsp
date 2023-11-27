@@ -44,7 +44,7 @@
     .continue-shopping-link:hover {
         color: red;
     }
-    .add-to-cart-link:active {
+    .continue-shopping-link:active {
         color: green;
     }
     .product-image {

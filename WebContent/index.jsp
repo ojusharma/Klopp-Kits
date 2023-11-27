@@ -2,6 +2,13 @@
 <html>
 <head>
         <title>Klopp's Grocery Main Page</title>
+		<style>
+			body {
+				background-image: url('img/klopp.png');
+				background-size: cover; 
+				background-repeat: no-repeat; 
+			}
+		</style>
 </head>
 <body>
 <h1 align="center">Welcome to Klopp's Grocery</h1>
