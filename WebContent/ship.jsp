@@ -59,7 +59,7 @@
                     int availableQuantity = inventoryResult.getInt("quantity");
                     if(availableQuantity < quantity) {
                         con.rollback(); // Rollback the transaction
-						out.println("<h2>Shiment not done! Insufficient inventory for Product ID: " + productId + "</h2> ");
+						out.println("<h2>Shipment not done! Insufficient inventory for Product ID: " + productId + "</h2> ");
 						ship = false;
                     } 
 					else
