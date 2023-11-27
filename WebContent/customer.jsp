@@ -2,6 +2,13 @@
 <html>
 <head>
 <title>Customer Page</title>
+<style>
+	table {
+		border-collapse: collapse;
+		width: 30%;
+		
+	}
+</style>
 </head>
 <body>
 <h1>Customer  Info</h1>
@@ -26,15 +33,19 @@ try{
 	
 	while(rst.next()){
 		
-		out.println("<tr><td>"+"CustomerId"+"</td><td>"+rst.getString(1)+"</td></tr>");
-		out.println("<tr><td>"+"Name"+"</td><td>"+rst.getString(2)+"</td></tr>");
-		out.println("<tr><td>"+"Address"+"</td><td>"+rst.getString(3)+"</td></tr>");
-		out.println("<tr><td>"+"City"+"</td><td>"+rst.getString(4)+"</td></tr>");
-		out.println("<tr><td>"+"Province"+"</td><td>"+rst.getString(5)+"</td></tr>");
-		out.println("<tr><td>"+"Postal Code"+"</td><td>"+rst.getString(6)+"</td></tr>");
-		out.println("<tr><td>"+"Country"+"</td><td>"+rst.getString(7)+"</td></tr>");
-		out.println("<tr><td>"+"Phone"+"</td><td>"+rst.getString(8)+"</td></tr>");
+		out.println("<tr><td><b>CustomerId</b>"+"</td><td>"+rst.getString(1)+"</td></tr>");
+		out.println("<tr><td><b>First Name</b>"+"</td><td>"+rst.getString(2)+"</td></tr>");
+		out.println("<tr><td><b>Last Name</b>"+"</td><td>"+rst.getString(3)+"</td></tr>");
+		out.println("<tr><td><b>Email</b>"+"</td><td>"+rst.getString(4)+"</td></tr>");
+		out.println("<tr><td><b>Phone</b>"+"</td><td>"+rst.getString(5)+"</td></tr>");
+		out.println("<tr><td><b>Address</b>"+"</td><td>"+rst.getString(6)+"</td></tr>");
+		out.println("<tr><td><b>City</b>"+"</td><td>"+rst.getString(7)+"</td></tr>");
+		out.println("<tr><td><b>Province</b>"+"</td><td>"+rst.getString(8)+"</td></tr>");
+		out.println("<tr><td><b>Postal Code</b>"+"</td><td>"+rst.getString(9)+"</td></tr>");
+		out.println("<tr><td><b>Country</b>"+"</td><td>"+rst.getString(10)+"</td></tr>");
+		out.println("<tr><td><b>UserId</b>"+"</td><td>"+rst.getString(11)+"</td></tr>");
 
+		
 	}
 	out.println("</table>");
 	closeConnection();
