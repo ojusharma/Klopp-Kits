@@ -8,7 +8,7 @@
             padding: 0;
             font-family: 'Montserrat', sans-serif;
             text-align: center;
-            background-image: url('img/background.jpg');
+            background-image: url('img/background1.jpg');
             background-size: cover; 
             background-repeat: no-repeat;
         }
@@ -59,7 +59,7 @@
 
         hr {
             margin-top: 5px;
-            margin-bottom: 5px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
