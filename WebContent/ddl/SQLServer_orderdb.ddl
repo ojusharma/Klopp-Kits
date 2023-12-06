@@ -151,7 +151,7 @@ INSERT INTO category(categoryName) VALUES ('Uber Eats Ligue 1');
 
 
 INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Arsenal Jersey 24/25', 1, 'Embrace the legacy of Arsenal with our official 2024-2025 edition jersey, a symbol of pride for every devoted fan',18.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('West Ham Jersey 23/24', 1, 'Embrace the legacy of West Ham with our official 2023-2024 edition jersey, a symbol of pride for every devoted fan',3w8.00);
+INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('West Ham Jersey 23/24', 1, 'Embrace the legacy of West Ham with our official 2023-2024 edition jersey, a symbol of pride for every devoted fan',38.00);
 INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Liverpool Jersey 23/24', 1, 'Embrace the legacy of Liverpool with our official 2023-2024 edition jersey, a symbol of pride for every devoted fan',108.00);
 INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Manchester City Jersey 21/22', 1, 'Embrace the legacy of Manchester City with our official 2021-2022 edition jersey, a symbol of pride for every devoted fan',1.00);
 INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Manchester United  Jersey 21/22', 1, 'Embrace the legacy of Manchester United with our official 2021-2022 edition jersey, a symbol of pride for every devoted fan',70.00);
