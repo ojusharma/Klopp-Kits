@@ -9,31 +9,36 @@
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <style>
     body {
-        font-family: Arial, sans-serif;
+
         margin: 20px;
     }
     table {
         border-collapse: collapse;
         width: 25%;
-        margin-bottom: 20px;
+        margin: 20px auto;
     }
     th, td {
         border: 2px solid #D3D3D3;
         padding: 8px;
-        text-align: left;
+        text-align: center;
     }
     th {
         background-color: #Fdb0c0;
     }
     .add-to-cart-link {
-        color: blue;
+        text-decoration: none;
+        color: rgb(6, 6, 44);
         display: block;
         margin-bottom: 20px;
         margin-top: 20px;
+        font-weight: bold;
+        font-size: 30px;
     }
     .continue-shopping-link {
         color: blue;
+        text-decoration: none;
         display: block;
+        font-weight: bold;
     }
     .add-to-cart-link:hover {
         color: red;
@@ -75,8 +80,8 @@ if(rs.next()) {
     String price = rs.getString(2);
     String imageURL = rs.getString(3);
     out.println("<h1>Product Details</h1>");
-out.println("<table><tr><th>Product Id</th><th>Product Name</th><th>Price</th></tr>");
-out.println("<tr><td>" + id + "</td><td>" + name + "</td><td>" + price + "</td></tr>");
+out.println("<table><tr><th>Product Name</th><th>Price($)</th></tr>");
+out.println("<tr><td>" + name + "</td><td>" + price + "</td></tr>");
 out.println("</table>");
     if(imageURL != null) {
         out.println("<img src=\"" + imageURL + "\" alt=\"Product Image\" />");
@@ -95,7 +100,7 @@ if(Integer.parseInt(id)==1)
 <%}		
 // TODO: Add links to Add to Cart and Continue Shopping
 out.println("\n<a href=\"addcart.jsp?id=" + id + "&name=" + rs.getString(1) + "&price=" + rs.getString(2) + "\" class=\"add-to-cart-link \">Add to Cart</a>");
-out.println("<a href=\"listprod.jsp\" class=\"continue-shopping-link\">Continue Shopping</a>");
+out.println("<a href=\"index.jsp\" class=\"continue-shopping-link\">Continue Shopping</a>");
 %>
 
 </body>

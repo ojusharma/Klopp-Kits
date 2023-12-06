@@ -40,7 +40,7 @@
 
         .header-links a {
             text-decoration: none;
-            color: #4b7aaa;
+            color: #2d4358;
             font-size: 16px;
             font-weight: bold;
             transition: color 0.3s ease;
@@ -59,13 +59,13 @@
 
         hr {
             margin-top: 5px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <a href="index.jsp">Klopp Kits</a>
+        <a href="index.jsp"><img src="img/logo.png" alt="Klopp Kits Logo" width="300" height="80"></a>
         <div class="header-links">
             <a href="login.jsp">Login</a>
             <a href="listorder.jsp">List All Orders</a>

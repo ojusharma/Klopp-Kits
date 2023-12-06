@@ -25,7 +25,9 @@
     th, td {
         border: 2px solid #D3D3D3;
         padding: 8px;
-        text-align: left;
+		text-align: center;
+		font-weight: bold;
+		font-size: 20px;
     }
     th {
         background-color: #Fdb0c0;
@@ -33,6 +35,18 @@
     .add-to-cart-link {
         color: blue;
     }
+	table img {
+            display: block;
+            margin: 0 auto;
+        }
+        .product-link {
+            text-decoration: none;
+            color: blue; 
+            transition: color 0.3s; 
+        }
+        .product-link:hover {
+            color: #f00; 
+        }
 </style>
 </head>
 <body>
@@ -79,7 +93,7 @@ ResultSet rst = sql.executeQuery();
 		{
 			imageURL = "img/no-image.png";
 		}
-		out.println("<tr><td><a href='product.jsp?id=" + rst.getInt(3) + "'><img src=\"" + imageURL + "\" alt=\"Add to Cart\" style=\" width: 80px; height: 80px;\" /></a>"
+		out.println("<tr><td><a href='product.jsp?id=" + rst.getInt(3) + "'><img src=\"" + imageURL + "\" alt=\"Product\" style=\" width: 150px; height: 150px;\" /></a>"
 				+ "</td><td><a href='product.jsp?id=" + rst.getInt(3) + "' class='product-link'>" + rst.getString(1) + "</a></td>"
 				+ "<td>" + rst.getString(2) + "</td></tr>");
 	}
@@ -105,7 +119,7 @@ else
 		{
 			imageURL = "img/no-image.png";
 		}
-		out.println("<tr><td><a href='product.jsp?id=" + rst.getInt(3) + "'><img src=\"" + imageURL + "\" alt=\"Add to Cart\" style=\" width: 80px; height: 80px;\" /></a>"
+		out.println("<tr><td><a href='product.jsp?id=" + rst.getInt(3) + "'><img src=\"" + imageURL + "\" alt=\"Add to Cart\" style=\" width: 150px; height: 150px;\" /></a>"
 				+ "</td><td><a href='product.jsp?id=" + rst.getInt(3) + "' class='product-link'>" + rst.getString(1) + "</a></td>"
 				+ "<td>" + rst.getString(2) + "</td></tr>");
 	}
