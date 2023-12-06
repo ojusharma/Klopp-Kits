@@ -68,7 +68,6 @@
         <a href="index.jsp">Klopp Kits</a>
         <div class="header-links">
             <a href="login.jsp">Login</a>
-            <a href="listprod.jsp">Begin Shopping</a>
             <a href="listorder.jsp">List All Orders</a>
             <a href="customer.jsp">Customer Info</a>
             <a href="admin.jsp">Administrators</a>
