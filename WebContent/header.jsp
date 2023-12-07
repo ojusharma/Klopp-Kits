@@ -67,16 +67,17 @@
     <div class="header">
         <a href="index.jsp"><img src="img/logo.png" alt="Klopp Kits Logo" width="300" height="80"></a>
         <div class="header-links">
+            <% if(session.getAttribute("authenticatedUser") == null) { %>
             <a href="login.jsp">Login</a>
+            <%}%>
             <a href="listorder.jsp">List All Orders</a>
             <a href="customer.jsp">Customer Info</a>
             <a href="admin.jsp">Administrators</a>
-            <a href="logout.jsp">Log out</a>
-
             <% 
                 String userName1 = (String) session.getAttribute("authenticatedUser");
-                if (userName1 != null) {
-                    out.println("<div class='signed-in'>Signed in as: " + userName1 + "</div>");
+                if (userName1 != null) {%>
+             <a href="logout.jsp">Log out</a>
+                    <%out.println("<div class='signed-in'>Signed in as: " + userName1 + "</div>");
                 }
             %>
         </div>

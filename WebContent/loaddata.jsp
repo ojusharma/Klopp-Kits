@@ -6,9 +6,9 @@
 <html>
 <head>
 <title>Loading Data</title>
+<%include file="header.jsp"%>
 </head>
 <body>
-
 <%
 out.print("<h1>Connecting to database.</h1><br><br>");
 

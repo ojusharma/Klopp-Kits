@@ -7,19 +7,18 @@
 <html>
 <head>
 <title>Klopp's Grocery</title>
+<%@ include file="header.jsp" %>
 <style>
     body {
-        font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #f9f9f9;
     }
     h1, h2, h3 {
         text-align: center;
     }
     table {
         border-collapse: collapse;
-        width: 50%;
+        width: 60%;
         margin: 20px auto;
     }
     th, td {
@@ -50,17 +49,29 @@
 </style>
 </head>
 <body>
-    <%@ include file="header.jsp" %>
 	<img src="img/homepageklopp.gif" alt="Animated GIF" style="display: block; margin: 0 auto; width: 30%;" />
     <h3>Search for the products you want to buy:</h3>
 
-    <form method="get" action="listprod.jsp">
+    <form method="get" action="index.jsp">
         <input type="text" name="productName" size="50">
+        <select name="category">
+            <option value="">All</option>
+            <option value=1>Premier League</option>
+            <option value=2>La Liga</option>
+            <option value=3>Indian Super League</option>
+            <option value=4>Bundesliga</option>
+            <option value=5>Uber Eats Ligue 1</option>
+        </select>
         <input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all products)
     </form>
+    
 
 <% // Get product name to search for
 String name = request.getParameter("productName");
+int category =0;
+if(request.getParameter("category") != null && request.getParameter("category") != "" && request.getParameter("category").length() != 0)
+{ category = Integer.parseInt(request.getParameter("category"));}
+
 
 //Note: Forces loading of SQL Server driver
 try
@@ -78,12 +89,12 @@ getConnection();
 // Variable name now contains the search string the user entered
 // Use it to build a query and print out the resultset.  Make sure to use PreparedStatement!
 
-if(name == null) {
+if(name == null && category == 0) {
 	//Make a table to display the results
 out.println("<h3>Lisiting All Products:</h3>");
 out.println("<table >");
-out.println("<tr><th>Kit</th><th>Product Name</th><th>Price ($)</th></tr>");
-PreparedStatement sql = con.prepareStatement("SELECT productName, productPrice, productId, productImageURL FROM product ORDER BY productName");
+out.println("<tr><th>Kit</th><th>Product Name</th><th>Category</th><th>Price ($)</th></tr>");
+PreparedStatement sql = con.prepareStatement("SELECT productName, productPrice, productId, productImageURL,categoryName FROM product as p JOIN category as c ON p.categoryId = c.categoryId ORDER BY productName");
 ResultSet rst = sql.executeQuery();
 
 	// Print out the ResultSet
@@ -95,39 +106,61 @@ ResultSet rst = sql.executeQuery();
 		}
 		out.println("<tr><td><a href='product.jsp?id=" + rst.getInt(3) + "'><img src=\"" + imageURL + "\" alt=\"Product\" style=\" width: 150px; height: 150px;\" /></a>"
 				+ "</td><td><a href='product.jsp?id=" + rst.getInt(3) + "' class='product-link'>" + rst.getString(1) + "</a></td>"
-				+ "<td>" + rst.getString(2) + "</td></tr>");
+				+ "<td>" + rst.getString(5) + "</td>"+"<td>" + rst.getString(2) + "</td></tr>");
 	}
 	out.println("</table>");
 	rst.close();	
 }
 
-else
-	{
-			
-		
-	out.println("<h3>Products that contain '" + name + "' :</h3>");
-	out.println("<table >");
-	out.println("<tr><th>Kit</th><th>Product Name</th><th>Price ($)</th></tr>");
-	PreparedStatement sql = con.prepareStatement("SELECT productName, productPrice, productId, productImageURL FROM product WHERE productName LIKE ? ORDER BY productName");
-	sql.setString(1, "%" + name + "%");
-	ResultSet rst = sql.executeQuery();
+else if(name != null) 
+	{	
+        if(category == 0)
+        {
+            out.println("<h3>Products that contain '" + name + "' :</h3>");
+            out.println("<table >");
+                out.println("<tr><th>Kit</th><th>Product Name</th><th>Category</th><th>Price ($)</th></tr>");
+                PreparedStatement sql = con.prepareStatement("SELECT productName, productPrice, productId, productImageURL,categoryName  FROM product JOIN category ON product.categoryId = category.categoryId WHERE productName LIKE ? ORDER BY productName");
+            sql.setString(1, "%" + name + "%");
+            ResultSet rst = sql.executeQuery();
 
-	// Print out the ResultSet
-	while(rst.next()) {
-		String imageURL = rst.getString(4);
-		if(imageURL == null || imageURL.equals(""))
-		{
-			imageURL = "img/no-image.png";
-		}
-		out.println("<tr><td><a href='product.jsp?id=" + rst.getInt(3) + "'><img src=\"" + imageURL + "\" alt=\"Add to Cart\" style=\" width: 150px; height: 150px;\" /></a>"
-				+ "</td><td><a href='product.jsp?id=" + rst.getInt(3) + "' class='product-link'>" + rst.getString(1) + "</a></td>"
-				+ "<td>" + rst.getString(2) + "</td></tr>");
-	}
+            // Print out the ResultSet
+            while(rst.next()) {
+                String imageURL = rst.getString(4);
+                if(imageURL == null || imageURL.equals(""))
+                {
+                    imageURL = "img/no-image.png";
+                }
+                out.println("<tr><td><a href='product.jsp?id=" + rst.getInt(3) + "'><img src=\"" + imageURL + "\" alt=\"Product\" style=\" width: 150px; height: 150px;\" /></a>"
+                    + "</td><td><a href='product.jsp?id=" + rst.getInt(3) + "' class='product-link'>" + rst.getString(1) + "</a></td>"
+                    + "<td>" + rst.getString(5) + "</td>"+"<td>" + rst.getString(2) + "</td></tr>");
+            }
+            out.println("</table>");
+            rst.close();
+        }  
+        else
+        {
+            out.println("<h3>Products that contain '" + name + "' :</h3>");
+            out.println("<table >");
+                out.println("<tr><th>Kit</th><th>Product Name</th><th>Category</th><th>Price ($)</th></tr>");
+                PreparedStatement sql = con.prepareStatement("SELECT productName, productPrice, productId, productImageURL,categoryName FROM product JOIN category ON product.categoryId = category.categoryId WHERE productName LIKE ? AND product.categoryId = ? ORDER BY productName");
+            sql.setString(1, "%" + name + "%");
+            sql.setInt(2, category);
+            ResultSet rst = sql.executeQuery();
 
-	
-
-	out.println("</table>");
-	rst.close();
+            // Print out the ResultSet
+            while(rst.next()) {
+                String imageURL = rst.getString(4);
+                if(imageURL == null || imageURL.equals(""))
+                {
+                    imageURL = "img/no-image.png";
+                }
+                out.println("<tr><td><a href='product.jsp?id=" + rst.getInt(3) + "'><img src=\"" + imageURL + "\" alt=\"Product\" style=\" width: 150px; height: 150px;\" /></a>"
+                    + "</td><td><a href='product.jsp?id=" + rst.getInt(3) + "' class='product-link'>" + rst.getString(1) + "</a></td>"
+                    + "<td>" + rst.getString(5) + "</td>"+"<td>" + rst.getString(2) + "</td></tr>");
+            }
+            out.println("</table>");
+            rst.close();
+        }     
 }
 
 out.println();
