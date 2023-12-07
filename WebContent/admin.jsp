@@ -11,7 +11,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        height: 150px;
+        height: 250px;
     }
 
     .button-container form {
@@ -47,6 +47,9 @@
         </form>
         <form action="loaddata.jsp" method="get">
             <button type="submit">Restore Database</button>
+        </form>
+        <form action="inv.jsp" method="get">
+            <button type="submit">Inventory</button>
         </form>
     </div>
 
