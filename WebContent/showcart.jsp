@@ -27,6 +27,31 @@
         h1, h2 {
             margin: 20px 0;
         }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+        }
+    
+        .button-container form {
+            margin: 10px 0;
+        }
+    
+        .button-container button {
+        padding: 10px 20px;
+        background-color: transparent;
+        color: #000;
+        border: 2px solid #000;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: large;
+        }
+        .button-container button:hover {
+            background-color: #000;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -45,7 +70,7 @@ if (productList == null) {
     out.println("<h1>Your Shopping Cart</h1>");
     out.print("<table>");
     out.print("<tr><th>Product Id</th><th>Product Name</th><th>Quantity</th>");
-    out.println("<th>Price</th><th>Subtotal</th></tr>");
+    out.println("<th>Price</th><th>Subtotal</th><th></th></tr>");
 
     double total = 0;
     Iterator<Map.Entry<String, ArrayList<Object>>> iterator = productList.entrySet().iterator();
@@ -80,6 +105,27 @@ if (productList == null) {
 
         out.print("<td align=\"right\">" + currFormat.format(pr) + "</td>");
         out.print("<td align=\"right\">" + currFormat.format(pr * qty) + "</td>");
+        %>
+       
+        <td><div class="button-container">
+            <form action="addcart.jsp" method="get">
+                <input type="hidden" name="id" value="<%= product.get(0) %>">
+                <input type="hidden" name="name" value="<%= product.get(1) %>">
+                <input type="hidden" name="price" value="<%= product.get(2) %>">
+                <button type="submit">+</button>
+            </form>
+            <form action="reducecart.jsp" method="get">
+                <input type="hidden" name="id" value="<%= product.get(0) %>">
+                <input type="hidden" name="name" value="<%= product.get(1) %>">
+                <input type="hidden" name="price" value="<%= product.get(2) %>">
+                <button type="submit">-</button>
+            </form>
+            <form action="removecart.jsp" method="get">
+                <input type="hidden" name="id" value="<%= product.get(0) %>">
+                <button type="submit">Remove</button> </form>
+        
+        </td>
+        <%
         out.println("</tr>");
 
         total = total + pr * qty;
@@ -92,6 +138,6 @@ if (productList == null) {
     out.println("<h2><a href=\"checkout.jsp\">Check Out</a></h2>");
 }
 %>
-<h2><a href="listprod.jsp">Continue Shopping</a></h2>
+<h2><a href="index.jsp">Continue Shopping</a></h2>
 </body>
 </html>
