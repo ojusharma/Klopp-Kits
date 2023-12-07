@@ -31,16 +31,13 @@
     th {
         background-color: #Fdb0c0;
     }
-    .add-to-cart-link {
-        color: blue;
-    }
 	table img {
             display: block;
             margin: 0 auto;
         }
         .product-link {
             text-decoration: none;
-            color: blue; 
+            color: rgb(72, 70, 200);
             transition: color 0.3s; 
         }
         .product-link:hover {

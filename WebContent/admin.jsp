@@ -19,17 +19,17 @@
     }
 
     .button-container button {
-        padding: 10px 20px;
-        background-color: #3498db;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
     }
-
     .button-container button:hover {
-        background-color: #2980b9;
+        background-color: #000;
+        color: #fff;
     }
 </style>
 </head>
