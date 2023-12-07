@@ -11,7 +11,7 @@
     <style>
         table {
             border-collapse: collapse;
-            width: 80%;
+            width: 70%;
             margin: 20px auto;
             padding-top: 30px;
         }
@@ -76,7 +76,7 @@ if (productList == null || productList.isEmpty()) {
     empty = false;
     out.println("<h1>Your Shopping Cart</h1>");
     out.print("<table>");
-    out.print("<tr><th>Product Id</th><th>Product Name</th><th>Quantity</th>");
+    out.print("<tr><th>Product Name</th><th>Quantity</th>");
     out.println("<th>Price</th><th>Subtotal</th><th>Actions</th></tr>");
 
     double total = 0;
@@ -90,7 +90,6 @@ if (productList == null || productList.isEmpty()) {
         }
 
         out.print("<tr>");
-        out.print("<td>" + product.get(0) + "</td>");
         out.print("<td>" + product.get(1) + "</td>");
 
         out.print("<td align=\"center\">" + product.get(3) + "</td>");
