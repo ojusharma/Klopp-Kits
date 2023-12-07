@@ -6,7 +6,7 @@
 <html>
 <head>
 <title>Loading Data</title>
-<%include file="header.jsp"%>
+<%@ include file="header.jsp"%>
 </head>
 <body>
 <%
