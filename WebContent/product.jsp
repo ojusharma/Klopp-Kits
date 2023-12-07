@@ -25,6 +25,10 @@
     th {
         background-color: #Fdb0c0;
     }
+    h3 {
+        text-align: center;
+        color: rgb(71, 59, 59)
+    }
     .add-to-cart-link {
         text-decoration: none;
         color: rgb(6, 6, 44);
@@ -57,6 +61,31 @@
         height: auto;
         margin-bottom: 20px;
     }
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+    }
+
+    .button-container form {
+        margin: 10px 0;
+    }
+
+    .button-container button {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .button-container button:hover {
+        background-color: #2980b9;
+    }
 </style>
 </head>
 
@@ -69,7 +98,7 @@ String id = request.getParameter("id");
 
 getConnection();
 
-String sql = "SELECT productName, productPrice, productImageURL FROM product WHERE productId = ?";
+String sql = "SELECT productName, productPrice, productImageURL, productDesc FROM product WHERE productId = ?";
 PreparedStatement ps = con.prepareStatement(sql);
 ps.setInt(1, Integer.parseInt(id));
 ResultSet rs = ps.executeQuery();
@@ -79,30 +108,28 @@ if(rs.next()) {
     String name = rs.getString(1);
     String price = rs.getString(2);
     String imageURL = rs.getString(3);
-    out.println("<h1>Product Details</h1>");
-out.println("<table><tr><th>Product Name</th><th>Price($)</th></tr>");
-out.println("<tr><td>" + name + "</td><td>" + price + "</td></tr>");
-out.println("</table>");
+    out.println("<h1>" + name + "</h1>");
     if(imageURL != null) {
         out.println("<img src=\"" + imageURL + "\" alt=\"Product Image\" />");
     }
+    out.println("<h3>" + rs.getString(4) + "</h3>");
+out.println("<table><th>Price($)</th></tr>");
+out.println("<tr><td>" + price + "</td></tr>");
+out.println("</table>");
 }  
-
-// TODO: Retrieve any image stored directly in database. Note: Call displayImage.jsp with product id as getParameter
-String url = "displayImage.jsp?id=" + id;
-
-if(Integer.parseInt(id)==1)
-{%>
-
-<img src="<%= url %>"/>
-
-
-<%}		
-// TODO: Add links to Add to Cart and Continue Shopping
-out.println("\n<a href=\"addcart.jsp?id=" + id + "&name=" + rs.getString(1) + "&price=" + rs.getString(2) + "\" class=\"add-to-cart-link \">Add to Cart</a>");
-out.println("<a href=\"index.jsp\" class=\"continue-shopping-link\">Continue Shopping</a>");
 %>
+<div class="button-container">
+    <form action="addcart.jsp" method="get">
+        <input type="hidden" name="id" value="<%= id %>">
+        <input type="hidden" name="name" value="<%= rs.getString(1) %>">
+        <input type="hidden" name="price" value="<%= rs.getString(2) %>">
+        <button type="submit">Add to Cart</button>
+    </form>
 
+    <form action="index.jsp" method="get">
+        <button type="submit">Continue Shopping</button>
+    </form>
+</div>
 </body>
 </html>
 

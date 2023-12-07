@@ -6,6 +6,34 @@
 <html>
 <head>
 <title>Loading Data</title>
+<style>
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 150px;
+    }
+
+    .button-container form {
+        margin: 10px 0;
+    }
+
+    .button-container button {
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .button-container button:hover {
+        background-color: #2980b9;
+    }
+</style>
 <%@ include file="header.jsp"%>
 </head>
 <body>
@@ -44,7 +72,7 @@ try ( Connection con = DriverManager.getConnection(urlForLoadData, uid, pw); )
         if (command.contains("INSERT INTO ordersummary") && !command.contains("DECLARE @orderId"))
             command = "DECLARE @orderId int \n"+command;
 
-        out.print(command+"<br>");        // Uncomment if want to see commands executed
+        //out.print(command+"<br>");        // Uncomment if want to see commands executed
         try
         {
             stmt.execute(command);
@@ -64,5 +92,9 @@ catch (Exception e)
     out.print(e);
 }  
 %>
+<div class="button-container">
+    <form action="admin.jsp" method="get">
+        <button type="submit">Back</button>
+    </form>
 </body>
 </html> 
