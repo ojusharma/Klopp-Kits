@@ -12,11 +12,14 @@
         table {
             border-collapse: collapse;
             width: 80%;
+            margin: 20px auto;
+            padding-top: 30px;
         }
         th, td {
 		border: 2px solid #D3D3D3;
 		padding: 8px;
-		text-align: left;
+		text-align: center;
+        font-weight: bold;
 	}
 	th {
 		background-color: #Fdb0c0;
@@ -29,14 +32,15 @@
         }
         .button-container {
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
-            height: 150px;
+            height: 50px;
+            gap: 10px;
         }
     
         .button-container form {
-            margin: 10px 0;
+            margin: 3px 0;
         }
     
         .button-container button {
@@ -52,6 +56,8 @@
             background-color: #000;
             color: #fff;
         }
+
+        
     </style>
 </head>
 <body>
@@ -60,17 +66,18 @@
 <%
 @SuppressWarnings({"unchecked"})
 HashMap<String, ArrayList<Object>> productList = (HashMap<String, ArrayList<Object>>) session.getAttribute("productList");
-
-if (productList == null) {
+boolean empty = false;
+if (productList == null || productList.isEmpty()) {
     out.println("<H1>Your shopping cart is empty!</H1>");
+    empty = true;
     productList = new HashMap<String, ArrayList<Object>>();
 } else {
     NumberFormat currFormat = NumberFormat.getCurrencyInstance();
-
+    empty = false;
     out.println("<h1>Your Shopping Cart</h1>");
     out.print("<table>");
     out.print("<tr><th>Product Id</th><th>Product Name</th><th>Quantity</th>");
-    out.println("<th>Price</th><th>Subtotal</th><th></th></tr>");
+    out.println("<th>Price</th><th>Subtotal</th><th>Actions</th></tr>");
 
     double total = 0;
     Iterator<Map.Entry<String, ArrayList<Object>>> iterator = productList.entrySet().iterator();
@@ -132,11 +139,20 @@ if (productList == null) {
     out.println("<tr><td colspan=\"4\" align=\"right\"><b>Order Total</b></td>"
             + "<td align=\"right\">" + currFormat.format(total) + "</td></tr>");
     out.println("</table>");
-
-    out.println("<h2><a href=\"checkout.jsp\">Check Out</a></h2>");
     
 }
 %>
-<h2><a href="index.jsp">Continue Shopping</a></h2>
+
+<div class="button-container" style="margin-top: 70px; flex-direction: column; gap: 20px">
+    <% if (!empty) { %>
+        <form action="checkout.jsp" method="get">
+            <button type="submit">Checkout</button>
+        </form>
+    <% } %>
+    <form action="index.jsp" method="get">
+        <button type="submit">Continue Shopping</button>
+    </form>
+</div>
+
 </body>
 </html>

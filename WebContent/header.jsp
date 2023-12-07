@@ -80,6 +80,7 @@
                     <%out.println("<div class='signed-in'>Signed in as: " + userName1 + "</div>");
                 }
             %>
+            <a href="showcart.jsp"><img src="img/shopping-cart-icon.png" alt="Shopping Cart" width="35" height="35"></a>
         </div>
     </div>
     <hr>
