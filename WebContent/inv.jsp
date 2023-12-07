@@ -61,8 +61,8 @@
 <form method="get" action="inv.jsp">
     <select name="category">
         <option value=0>All</option>
-        <option value=1>Warehouse 1</option>
-        <option value=2>Warehouse 2</option>
+        <option value=1> Main Warehouse</option>
+        <option value=2> Academy Warehouse</option>
     </select>
     <input type="submit" value="Submit"><input type="reset" value="Reset"> (Leave blank for all Warehouses)
 </form>
@@ -75,7 +75,7 @@
   {   wIdi = Integer.parseInt(request.getParameter("category"));}
 
     String sql = "SELECT warehouseId ,productInventory.productId, productName ,productInventory.quantity,productInventory.price ,(productInventory.quantity *productInventory.price ) FROM productInventory JOIN product ON productInventory.productId = product.productId WHERE warehouseId = ?";
-    String sql2 = "SELECT warehouseId, productInventory.productId , productName ,productInventory.quantity,productInventory.price ,(productInventory.quantity *productInventory.price ) FROM productInventory JOIN product ON productInventory.productId = product.productId ";
+    String sql2 = "SELECT warehouseId, productInventory.productId , productName ,productInventory.quantity,productInventory.price ,(productInventory.quantity *productInventory.price ) FROM productInventory JOIN product ON productInventory.productId = product.productId ORDER BY warehouseId ,productInventory.productId ASC  ";
     PreparedStatement ps1 = con.prepareStatement(sql);
     PreparedStatement ps2 = con.prepareStatement(sql2);
     ResultSet rs ;

@@ -202,6 +202,33 @@ INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (22
 INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (23, 1, 3, 19.00);
 INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (24, 1, 3, 15.00);
 INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (25, 1, 3, 15.00);
+INSERT INTO warehouse(warehouseName) VALUES ('Academy warehouse');
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (1, 2, 3, 18);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (2, 2, 1, 38.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (3, 2, 5, 108.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (4, 2, 0, 1.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (5, 2, 4, 70.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (6, 2, 2, 130.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (7, 2, 3, 70.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (8, 2, 1, 11.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (9, 2, 5, 20.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (10, 2, 2, 31.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (11, 2, 4, 90.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (12, 2, 1, 60.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (13, 2, 3, 15.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (14, 2, 2, 18.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (15, 2, 5, 18.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (16, 2, 0, 18.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (17, 2, 3, 18.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (18, 2, 4, 18.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (19, 2, 1, 35.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (20, 2, 2, 10.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (21, 2, 3, 50.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (22, 2, 5, 7.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (23, 2, 0, 19.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (24, 2, 4, 15.00);
+INSERT INTO productInventory(productId, warehouseId, quantity, price) VALUES (25, 2, 1, 15.00);
+
 
 
 INSERT INTO customer (firstName, lastName, email, phonenum, address, city, state, postalCode, country, userid, password) VALUES ('Arnold', 'Anderson', 'a.anderson@gmail.com', '204-111-2222', '103 AnyWhere Street', 'Winnipeg', 'MB', 'R3X 45T', 'Canada', 'arnold' , '304Arnold!');
