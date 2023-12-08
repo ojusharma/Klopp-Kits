@@ -10,24 +10,20 @@
 	}
 
 	table {
-		border-collapse: collapse;
-		width: 60%;
-		margin: 20px auto; /* Center the table */
-	}
-
-	table, th, td {
-		border: 1px solid #ddd;
-	}
-
-	th, td {
-		padding: 12px;
-		text-align: left;
-	}
-
-	th {
-		background-color: #f2f2f2;
-	}
-
+        border-collapse: collapse;
+        width: 40%;
+        margin: 20px auto;
+    }
+    th, td {
+        border: 2px solid #D3D3D3;
+        padding: 8px;
+		text-align: center;
+		font-weight: bold;
+		font-size: 16px;
+    }
+    th {
+        background-color: #Fdb0c0;
+    }
 	h1 {
 		color: #333;
 	}
@@ -58,6 +54,7 @@ try{
 	ResultSet rst = pstmt.executeQuery();
 	ResultSet rst2 = pstmt2.executeQuery();
 	out.println("<table border=1>");
+		out.print("<tr><th>Attribute</th><th>Information</th></tr>");
 	
 	while(rst.next()){
 		
