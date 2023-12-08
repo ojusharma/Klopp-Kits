@@ -32,7 +32,7 @@
     .product-image {
         max-width: 100%;
         height: auto;
-        margin-bottom: 20px;
+        margin-top: 10px;
     }
     .button-container {
         display: flex;
@@ -47,7 +47,7 @@
     }
 
     .button-container button {
-    padding: 10px 20px;
+    padding: 10px 10px;
     background-color: transparent;
     color: #000;
     border: 2px solid #000;
@@ -72,7 +72,7 @@ String id = request.getParameter("id");
 getConnection();
 
 try{
-String sql = "SELECT productName, productPrice, productImageURL, productDesc FROM product WHERE productId = ?";
+String sql = "SELECT productName, productPrice, productImageURL, productDesc, productImage FROM product WHERE productId = ?";
 PreparedStatement ps = con.prepareStatement(sql);
 ps.setInt(1, Integer.parseInt(id));
 ResultSet rs = ps.executeQuery();
@@ -82,14 +82,18 @@ if(rs.next()) {
     String name = rs.getString(1);
     String price = rs.getString(2);
     String imageURL = rs.getString(3);
-    out.println("<h1>" + name + "</h1>");
+    out.println("<h1>" + name + "  -  " + price + "$</h1>");   
     if(imageURL != null) {
         out.println("<img src=\"" + imageURL + "\" alt=\"Product Image\" />");
     }
+    if(id.equals("17"))
+    {
+        String url = "displayImage.jsp?id=" + id;
+    %>
+        <img src="<%= url %>"/>
+    <% }
     out.println("<h3>" + rs.getString(4) + "</h3>");
-out.println("<table><th>Price($)</th></tr>");
-out.println("<tr><td>" + price + "</td></tr>");
-out.println("</table>");
+    
 }  
 %>
 <div class="button-container">
