@@ -91,6 +91,7 @@
             throw new Exception("Invalid order id");
         }
     }
+    closeConnection();
 %>                       				
 
 <h2><a href="index.jsp">Back to Main Page</a></h2>
