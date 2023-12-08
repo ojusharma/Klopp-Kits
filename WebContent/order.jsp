@@ -76,6 +76,10 @@ if(!isNumber || custId == null || custId.isEmpty())
 {
 	out.println("<h3>Customer ID is invalid</h3>");
 	out.println("<h3>Go back to previous page and try again!</h3>");
+	%>
+	<img src="img/kloppshock.gif" alt="Animated GIF" style="display: block; margin: 0 auto; width: 30%; border-radius: 10%; overflow: hidden; margin-bottom: 50px; margin-top: 30px;" />
+
+	<%
 }
 else
 {
@@ -220,12 +224,17 @@ else
 						<button type="submit">Shop Again!</button>
 					</form>
 				</div>
+				<img src="img/orderklopp.gif" alt="Animated GIF" style="display: block; margin: 0 auto; width: 30%; border-radius: 10%; overflow: hidden; margin-bottom: 50px; margin-top: 30px;" />
+
 					<%
 			keys.close();
 		   }
 		   else
 		   {
 			out.println("Incorrect password please try again!");
+			%>
+			<img src="img/kloppshock.gif" alt="Animated GIF" style="display: block; margin: 0 auto; width: 30%; border-radius: 10%; overflow: hidden; margin-bottom: 50px; margin-top: 30px;" />
+			<%
 		   }
 		}
 	}
@@ -234,8 +243,6 @@ else
 	closeConnection();
 }	
 %>
-<img src="img/orderklopp.gif" alt="Animated GIF" style="display: block; margin: 0 auto; width: 30%; border-radius: 10%; overflow: hidden; margin-bottom: 50px; margin-top: 30px;" />
-
 </BODY>
 </HTML>
 
