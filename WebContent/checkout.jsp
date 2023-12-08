@@ -48,7 +48,7 @@ if(userName != null){
             <jsp:forward page="<%= source %>"/>
 <%
         }
-    }
+        closeConnection();}
     catch(Exception e)
     {
         out.println("Error: " + e.getMessage());

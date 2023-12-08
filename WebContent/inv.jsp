@@ -102,7 +102,7 @@
         </form>
     </div>
 <%
-    con.close();
+closeConnection();
 %>
 
 </body>

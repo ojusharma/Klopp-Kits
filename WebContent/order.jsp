@@ -231,7 +231,7 @@ else
 	}
 	rst.close();
 	//Closing connection
-	con.close();
+	closeConnection();
 }	
 
 
