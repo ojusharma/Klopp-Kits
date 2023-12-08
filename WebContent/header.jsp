@@ -35,7 +35,7 @@
             justify-content: center;
             align-items: center;
             gap: 30px;
-            margin-top: 20px;
+            margin-top: 8px;
         }
 
         .header-links a {
@@ -67,15 +67,24 @@
         <div class="header-links">
             <% if(session.getAttribute("authenticatedUser") == null) { %>
             <a href="login.jsp">Login</a>
-            <%}%>
-            <a href="customer.jsp">Customer Info</a>
-            <a href="admin.jsp">Administrators</a>
-            <% 
+            <%}
+            
                 String userName1 = (String) session.getAttribute("authenticatedUser");
+                Object val = session.getAttribute("isAdmin");
                 if (userName1 != null) {%>
-             <a href="logout.jsp">Log out</a>
-                    <%out.println("<div class='signed-in'>Signed in as: " + userName1 + "</div>");
+                    <a href="customer.jsp">Customer Info</a>
+                    <a href="logout.jsp">Log out</a>
+                    <%
+                    if(val!=null && (int)val == 1)
+                    {
+                        %>
+                        <a href="admin.jsp">Administrators</a>
+                        <% 
+                    }
+                    out.println("<div class='signed-in'>Signed in as: " + userName1 + "</div>");
                 }
+                
+            
             %>
             <a href="showcart.jsp"><img src="img/shopping-cart-icon.png" alt="Shopping Cart" width="35" height="35"></a>
         </div>
