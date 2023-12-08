@@ -27,6 +27,31 @@
 	h1 {
 		color: #333;
 	}
+	.button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+    }
+
+    .button-container form {
+        margin: 10px 0;
+    }
+
+    .button-container button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    }
+    .button-container button:hover {
+        background-color: #000;
+        color: #fff;
+    }
 </style>
 </head>
 <body>
@@ -69,11 +94,18 @@ try{
 		out.println("<tr><td><b>Postal Code</b>"+"</td><td>"+rst.getString(9)+"</td></tr>");
 		out.println("<tr><td><b>Country</b>"+"</td><td>"+rst.getString(10)+"</td></tr>");
 		out.println("<tr><td><b>UserId</b>"+"</td><td>"+rst.getString(11)+"</td></tr>");
+		session.setAttribute("EditCid",rst.getString(1));
 
 		
 	}
 	out.println("</table>");
 	%>
+	<div class="button-container">
+		<form action="edit.jsp" method="get">
+			 
+			<button type="submit">Edit Profile</button>
+		</form>
+	</div>	
 	<h1>Your Order History</h1>
 	<%
 	
