@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Klopp's Grocery</title>
+<title>Klopp Kits</title>
 <%@ include file="header.jsp" %>
 <style>
     body {

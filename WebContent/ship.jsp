@@ -9,7 +9,7 @@
 
 <html>
 <head>	
-<title>Klopp's Grocery Shipment Processing</title>
+<title>Klopp Kits Shipment Processing</title>
 </head>
 <body>
         
@@ -91,7 +91,6 @@
             throw new Exception("Invalid order id");
         }
     }
-    closeConnection();
 %>                       				
 
 <h2><a href="index.jsp">Back to Main Page</a></h2>

@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Klopp's Grocery Order Processing</title>
+<title>Klopp Kits Order Processing</title>
 <%@ include file="header.jsp"%>
 <style>
 	body {
@@ -233,10 +233,9 @@ else
 	//Closing connection
 	closeConnection();
 }	
-
-
-
 %>
+<img src="img/orderklopp.gif" alt="Animated GIF" style="display: block; margin: 0 auto; width: 30%; border-radius: 10%; overflow: hidden; margin-bottom: 50px; margin-top: 30px;" />
+
 </BODY>
 </HTML>
 

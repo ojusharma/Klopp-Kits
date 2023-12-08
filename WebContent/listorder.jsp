@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Klopp's Grocery Order List</title>
+	<title>Klopp Kits Order List</title>
     <style>
     table {
         border-collapse: collapse;
