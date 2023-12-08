@@ -28,13 +28,14 @@ getConnection();
 if (productList.containsKey(id))
 {	
 	
-	String sql = "SELECT quantity FROM productInventory WHERE productId = ?";
+	String sql = "SELECT SUM(quantity),productId FROM productInventory WHERE productId = ? Group by productId";
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setInt(1, Integer.parseInt(id));
 	ResultSet rs = ps.executeQuery();
 	if(rs.next())
 	{
 	int qty = rs.getInt(1);
+	
 	product = (ArrayList<Object>) productList.get(id);
 	int curAmount = ((Integer) product.get(3)).intValue();
 		if(curAmount< qty)
@@ -49,13 +50,14 @@ if (productList.containsKey(id))
 }
 else
 {
-	String sql = "SELECT quantity FROM productInventory WHERE productId = ?";
+	String sql = "SELECT SUM(quantity),productId FROM productInventory WHERE productId = ? GROUP BY productId";
 	PreparedStatement ps = con.prepareStatement(sql);
 	ps.setInt(1, Integer.parseInt(id));
 	ResultSet rs = ps.executeQuery();
 	if(rs.next())
 	{
 	int qty = rs.getInt(1);
+	
 	if(qty==0)
 	{
 		out.println("<script>alert('Product out of stock');</script>");
