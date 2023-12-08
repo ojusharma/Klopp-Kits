@@ -37,12 +37,13 @@
     <%@ include file="header.jsp"%> 
     <%
     int admin=-1;
-    if((session.getAttribute("isAdmin")).toString()==null)
+    Object val = session.getAttribute("isAdmin");
+    if(val==null)
     {
         session.setAttribute("isAdmin", 0);
     }
     else{
-        admin = (int)session.getAttribute("isAdmin");
+        admin = (int)val;
     }
     
     if(admin!=1){
