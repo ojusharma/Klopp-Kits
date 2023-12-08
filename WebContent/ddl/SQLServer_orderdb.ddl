@@ -173,7 +173,7 @@ INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Pari
 INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Lille Jersey 24/25', 5, 'Embrace the legacy of Lille with our official 2024-2025 edition jersey, a symbol of pride for every devoted fan',15.00);
 INSERT product(productName, categoryId, productDesc, productPrice) VALUES (' Olympique Marseille Jersey 24/25', 5, 'Embrace the legacy of Olympique Marseille with our official 2024-2025 edition jersey, a symbol of pride for every devoted fan',15.00);
 INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Monaco FC Jersey 24/25', 5, 'Embrace the legacy of Monaco with our official 2024-2025 edition jersey, a symbol of pride for every devoted fan',15.00);
-INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Olympique Lyon Jersey 24/25', 5, 'Embrace the legacy of Arsenal with our official 2024-2025 edition jersey, a symbol of pride for every devoted fan',15.00);
+INSERT product(productName, categoryId, productDesc, productPrice) VALUES ('Olympique Lyon Jersey 24/25', 5, 'Embrace the legacy of Olympique Lyon with our official 2024-2025 edition jersey, a symbol of pride for every devoted fan',15.00);
 
 
 
