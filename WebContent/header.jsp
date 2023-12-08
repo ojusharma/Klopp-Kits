@@ -43,7 +43,6 @@
             color: #2d4358;
             font-size: 16px;
             font-weight: bold;
-            transition: color 0.3s ease;
         }
 
         .header-links a:hover {

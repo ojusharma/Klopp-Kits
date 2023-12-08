@@ -34,7 +34,22 @@
 </style>
 </head>
 <body>
-    <%@ include file="header.jsp" %>
+    <%@ include file="header.jsp"%> 
+    <%
+    int admin=-1;
+    if((session.getAttribute("isAdmin")).toString()==null)
+    {
+        session.setAttribute("isAdmin", 0);
+    }
+    else{
+        admin = (int)session.getAttribute("isAdmin");
+    }
+    
+    if(admin!=1){
+    	out.println("<h1>You are not authorized to access this page</h1>");
+    }
+    else{
+    %>
     <h2>Administrator Panel</h2>
 
     <div class="button-container">
@@ -52,6 +67,7 @@
             <button type="submit">Inventory</button>
         </form>
     </div>
+    <%}%>
 
 </body>
 </html>

@@ -41,6 +41,7 @@
 			ResultSet rst = pstmt.executeQuery();
 			if(rst.next()){
 				retStr = username;
+				session.setAttribute("isAdmin",  rst.getInt(13));
 			}
 			else{
 				retStr = null;

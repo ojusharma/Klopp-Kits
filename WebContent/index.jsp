@@ -38,7 +38,6 @@
         .product-link {
             text-decoration: none;
             color: rgb(72, 70, 200);
-            transition: color 0.3s; 
         }
         .product-link:hover {
             color: #f00; 
