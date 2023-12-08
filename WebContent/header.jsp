@@ -51,9 +51,8 @@
         }
 
         .signed-in {
-            color: #0066CC;
+            color: #3336d3;
             font-size: 16px;
-            margin-top: 5px;
             font-weight: bold;
         }
 
@@ -70,7 +69,6 @@
             <% if(session.getAttribute("authenticatedUser") == null) { %>
             <a href="login.jsp">Login</a>
             <%}%>
-            <a href="listorder.jsp">List All Orders</a>
             <a href="customer.jsp">Customer Info</a>
             <a href="admin.jsp">Administrators</a>
             <% 
