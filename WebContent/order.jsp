@@ -11,9 +11,9 @@
 <html>
 <head>
 <title>Klopp's Grocery Order Processing</title>
+<%@ include file="header.jsp"%>
 <style>
 	body {
-		font-family: Arial, sans-serif;
 		margin: 20px;
 		line-height: 1.6;
 	}
@@ -21,9 +21,9 @@
 		text-align: center;
 	}
 	table {
-		width: 100%;
+		width: 60%;
 		border-collapse: collapse;
-		margin-bottom: 20px;
+		margin: 20px auto;
 	}
 	th, td {
 		border: 1px solid #ccc;
@@ -36,6 +36,19 @@
 	a {
 		color: #007bff;
 	}
+	.button-container button {
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    }
+    .button-container button:hover {
+        background-color: #000;
+        color: #fff;
+    }
 </style>
 </head>
 <body>
@@ -200,9 +213,14 @@ else
 
 				// Clear cart if order placed successfully
 				productList.clear();
+				%>
 
-				out.println("<h3><a href=\"shop.html\">Go to Home Page</a></h3>");
-
+				<div class="button-container">
+					<form action="index.jsp" method="get">
+						<button type="submit">Shop Again!</button>
+					</form>
+				</div>
+					<%
 			keys.close();
 		   }
 		   else

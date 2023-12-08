@@ -29,33 +29,6 @@
         text-align: center;
         color: rgb(71, 59, 59)
     }
-    .add-to-cart-link {
-        text-decoration: none;
-        color: rgb(6, 6, 44);
-        display: block;
-        margin-bottom: 20px;
-        margin-top: 20px;
-        font-weight: bold;
-        font-size: 30px;
-    }
-    .continue-shopping-link {
-        color: blue;
-        text-decoration: none;
-        display: block;
-        font-weight: bold;
-    }
-    .add-to-cart-link:hover {
-        color: red;
-    }
-    .add-to-cart-link:active {
-        color: green;
-    }
-    .continue-shopping-link:hover {
-        color: red;
-    }
-    .continue-shopping-link:active {
-        color: green;
-    }
     .product-image {
         max-width: 100%;
         height: auto;
@@ -98,6 +71,7 @@ String id = request.getParameter("id");
 
 getConnection();
 
+try{
 String sql = "SELECT productName, productPrice, productImageURL, productDesc FROM product WHERE productId = ?";
 PreparedStatement ps = con.prepareStatement(sql);
 ps.setInt(1, Integer.parseInt(id));
@@ -130,6 +104,11 @@ out.println("</table>");
         <button type="submit">Continue Shopping</button>
     </form>
 </div>
+<%
+} catch(Exception e) {
+    out.println("Error: " + e.getMessage());
+}
+%>
 </body>
 </html>
 

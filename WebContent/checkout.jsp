@@ -26,7 +26,6 @@
         input[type="text"],
         input[type="reset"] {
             margin-bottom: 15px;
-            
         }
 
     </style>
@@ -62,16 +61,22 @@ else{%>
 <img src="img/checkout-icon-style-vector.png" alt="Profile" style="display: block; margin: 0 auto; width: 15%; border-radius: 10%; overflow: hidden; margin-bottom: 20px; margin-top: 30px;" />
 <h2>Enter your customer ID and password to complete the transaction:</h2>
 
-<form method="get" action="order.jsp">
-    <label for="customerId">Customer ID:</label>
-    <input type="text" name="customerId" size="50">
+<center>
+    <form method="get" action="order.jsp">
+        <label for="customerId"><b>Customer ID:</b></label>
+        <input type="text" name="customerId" size="50">
+        
+        <label for="Cpassword"><b>Password:</b></label>
+        <input type="password" name="Cpassword" size="50">
+        
+        <input type="submit" value="Submit" style=" padding: 10px 20px; margin-top: 30px; background-color: transparent; color: #000; border: 2px solid #000; border-radius: 5px; cursor: pointer; font-size: small;"
+        onmouseover="this.style.backgroundColor='green'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000';">
+        <input type="reset" value="Reset" style=" padding: 10px 20px; margin-top: 30px; background-color: transparent; color: #000; border: 2px solid #000; border-radius: 5px; cursor: pointer; font-size: small;"
+        onmouseover="this.style.backgroundColor='#000'; this.style.color='#fff';" onmouseout="this.style.backgroundColor='transparent'; this.style.color='#000';">
+    </form>
     
-    <label for="Cpassword">Password:</label>
-    <input type="password" name="Cpassword" size="50">
-    
-    <input type="submit" value="Submit">
-    <input type="reset" value="Reset">
-</form>
+  </center>
+  
 <%}%>
 </body>
 </html>
