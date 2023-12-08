@@ -45,8 +45,10 @@
 </style>
 </head>
 <body>
-	<img src="img/homepageklopp.gif" alt="Animated GIF" style="display: block; margin: 0 auto; width: 30%; border-radius: 10%; overflow: hidden; margin-bottom: 50px; margin-top: 30px;" />
-    <h3>Search for the products! </h3>
+    <h2>Simply the best.</h2>
+	<img src="img/homepageklopp.gif" alt="Animated GIF" style="display: block; margin: 0 auto; width: 20%; border-radius: 50%; overflow: hidden; margin-bottom: 10px; margin-top: 20px;" />
+    <div>Jurgen Klopp - Football Coach - Overall Legend</div>
+    <h3 style="margin-top: 15px;">Search for the products! </h3>
 
     <form method="get" action="index.jsp">
         <input type="text" name="productName" size="50">
