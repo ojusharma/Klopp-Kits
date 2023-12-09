@@ -1,4 +1,4 @@
-# **Klopp's Grocery Store**
+# **Klopp Kits**
 
 Welcome to Klopp Kits, a **Java-based full-stack project** that harnesses the power of MySQL, Docker, and JDBC to create an innovative online jersey sales shop!
 
