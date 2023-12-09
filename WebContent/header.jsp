@@ -70,12 +70,12 @@
             <%}
             
                 String userName1 = (String) session.getAttribute("authenticatedUser");
-                Object val = session.getAttribute("isAdmin");
+                Object val123 = session.getAttribute("isAdmin");
                 if (userName1 != null) {%>
                     <a href="customer.jsp">Customer Info</a>
                     <a href="logout.jsp">Log out</a>
                     <%
-                    if(val!=null && (int)val == 1)
+                    if(val123!=null && (int)val123 == 1)
                     {
                         %>
                         <a href="admin.jsp">Administrators</a>

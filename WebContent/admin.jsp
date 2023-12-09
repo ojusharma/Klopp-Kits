@@ -37,13 +37,13 @@
     <%@ include file="header.jsp"%> 
     <%
     int admin=-1;
-    Object val = session.getAttribute("isAdmin");
-    if(val==null)
+    Object val2 = session.getAttribute("isAdmin");
+    if(val2==null)
     {
         session.setAttribute("isAdmin", 0);
     }
     else{
-        admin = (int)val;
+        admin = (int)val2;
     }
     
     if(admin!=1){
@@ -59,7 +59,7 @@
         </form>
 
         <form action="admin_cust.jsp" method="get">
-            <button type="submit">Customer Information</button>
+            <button type="submit">Registered Customers Information</button>
         </form>
         <form action="loaddata.jsp" method="get">
             <button type="submit">Restore Database</button>
