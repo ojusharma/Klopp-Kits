@@ -11,16 +11,6 @@ You can:
 - Check Order History
 - More cool stuff!
 
-![Website Home](./WebContent/img/website_home.jpg)
-
-## A Glimpse of Our Pages
-
-![Product Search](./WebContent/img/product_search.jpg)
-
-![Product Details](./WebContent/img/product_details.jpg)
-
-![Shopping Cart](./WebContent/img/shop_cart.jpg)
-
 ## About the Creators
 [Ojus Sharma](https://github.com/ojusharma) /
 [Sparsh Khanna](https://github.com/Sparshkhannaa)
